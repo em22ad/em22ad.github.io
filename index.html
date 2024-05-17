@@ -33,52 +33,46 @@
     <option value="prompt">Click 'Connect' to add a port...</option>
   </select>
   <button id="connect">Connect</button>
-
-  <button id="download">Download output</button>
-  <button id="clear">Clear output</button>
-
+<button id="download">Download output</button>
+<button id="clear">Clear output</button>
   <div class="info">
     <a id="polyfill_switcher"></a>
   </div>
-
   <br>
-
-  <label for="baudrate">Baud rate:</label>
-  <select id="baudrate">
-    <option value="9600">9600</option>
-    <option value="14400">14400</option>
-    <option value="19200">19220</option>
-    <option value="28800">28800</option>
-    <option value="38400">38400</option>
-    <option value="57600">57600</option>
-    <option value="115200" selected>115200</option>
-    <option value="230400">230400</option>
-    <option value="460800">460800</option>
-    <option value="921600">921600</option>
-    <option value="custom">Custom</option>
-  </select>
-  <input id="custom_baudrate" type="number" min="1" placeholder="Enter baudrate..." hidden>
-  <label for="databits">Data bits:</label>
-  <select id="databits">
-    <option value="7">7</option>
-    <option value="8" selected>8</option>
-  </select>
-  <label for="parity">Parity:</label>
-  <select id="parity">
-    <option value="none" selected>None</option>
-    <option value="even">Even</option>
-    <option value="odd">Odd</option>
-  </select>
-  <label for="stopbits">Stop bits:</label>
-  <select id="stopbits">
-    <option value="1" selected>1</option>
-    <option value="2">2</option>
-  </select>
-  <input id="rtscts" type="checkbox">
-  <label for="rtscts">Hardware flow control</label>
-
+<label for="baudrate">Baud rate:</label>
+<select id="baudrate">
+<option value="9600">9600</option>
+<option value="14400">14400</option>
+<option value="19200">19220</option>
+<option value="28800">28800</option>
+<option value="38400">38400</option>
+<option value="57600">57600</option>
+<option value="115200" selected>115200</option>
+<option value="230400">230400</option>
+<option value="460800">460800</option>
+<option value="921600">921600</option>
+<option value="custom">Custom</option>
+</select>
+<input id="custom_baudrate" type="number" min="1" placeholder="Enter baudrate..." hidden>
+<label for="databits">Data bits:</label>
+<select id="databits">
+<option value="7">7</option>
+<option value="8" selected>8</option>
+</select>
+<label for="parity">Parity:</label>
+<select id="parity">
+<option value="none" selected>None</option>
+<option value="even">Even</option>
+<option value="odd">Odd</option>
+</select>
+<label for="stopbits">Stop bits:</label>
+<select id="stopbits">
+<option value="1" selected>1</option>
+<option value="2">2</option>
+</select>
+<input id="rtscts" type="checkbox">
+<label for="rtscts">Hardware flow control</label>
   <br>
-
   <input id="echo" type="checkbox">
   <label class="checkbox" for="echo">Local echo</label>
   <input id="enter_flush" type="checkbox">
@@ -87,7 +81,40 @@
   <label class="checkbox" for="convert_eol">Convert EOL</label>
   <input id="autoconnect" type="checkbox">
   <label class="checkbox" for="autoconnect">Automatically connect</label>
-
+  <br>
+  <!-- Added UI elements -->
+<label for="timePerObservation">Time (secs) per observation:</label>
+<select id="timePerObservation">
+<option value="10">10</option>
+<option value="20">20</option>
+<option value="30">30</option>
+<option value="40">40</option>
+<option value="50">50</option>
+<option value="60">60</option>
+</select>
+<label for="operationMode">Mode of Operation:</label>
+<select id="operationMode">
+<option value="deploy">Deploy</option>
+<option value="calibration">Calibration</option>
+</select>
+<label for="kValueKNN">K-value KNN:</label>
+<select id="kValueKNN">
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+</select>
+<label for="vectorSpaceMeasure">Vector Space Measure:</label>
+<select id="vectorSpaceMeasure">
+<option value="euclidean">Euclidean</option>
+<option value="cosine">Cosine</option>
+</select>
   <div class="info">
     <a href="https://github.com/GoogleChromeLabs/serial-terminal">Source Code on GitHub</a>
   </div>
