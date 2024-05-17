@@ -32,9 +32,9 @@
   <select id="ports">
     <option value="prompt">Click 'Connect' to add a port...</option>
   </select>
-  <button id="connect">Start Observing</button>
-<button id="download">Save Logs</button>
-<button id="clear">Stop Observing</button>
+  <button id="connect">Start Calibration</button>
+<button id="download">Save Log Data</button>
+<button id="clear">Stop Calibration</button>
   <div class="info">
     <a id="polyfill_switcher"></a>
   </div>
@@ -76,11 +76,11 @@
   <input id="echo" type="checkbox">
   <label class="checkbox" for="echo">Local echo</label>
   <input id="enter_flush" type="checkbox">
-  <label class="checkbox" for="enter_flush">Flush on enter</label>
+  <label class="checkbox" for="enter_flush">Occupied</label>
   <input id="convert_eol" type="checkbox">
-  <label class="checkbox" for="convert_eol">Convert EOL</label>
+  <label class="checkbox" for="convert_eol">Vacant</label>
   <input id="autoconnect" type="checkbox">
-  <label class="checkbox" for="autoconnect">Automatically connect</label>
+  <label class="checkbox" for="autoconnect">Disable LEDs</label>
   <br>
   <!-- Added UI elements -->
 <label for="timePerObservation">Time (secs) per observation:</label>
