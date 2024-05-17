@@ -1,11 +1,8 @@
-# Serial Terminal
+# PIRVision Lens Terminal
 
-This repository contains a Progressive Web App that allows the user to
-communicate with a locally connected serial device through an interactive
-terminal. This provides a demonstration of the [Serial
-API](https://wicg.github.io/serial/).
-
-This API is available starting with Chrome 89, Edge 89, and Opera 76.
+This repository contains a Web App that allows an end user to
+communicate with PIRVision Lens Development Board connected serial port through an interactive
+terminal. This app utlizes the [Serial API] (https://wicg.github.io/serial/) to establish communication.
 
 ## Privacy
 
