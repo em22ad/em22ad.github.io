@@ -41,6 +41,7 @@ let flowControlCheckbox: HTMLInputElement;
 let echoCheckbox: HTMLInputElement;
 let flushOnEnterCheckbox: HTMLInputElement;
 let autoconnectCheckbox: HTMLInputElement;
+let operationModeSelector: HTMLSelectElement;
 
 let portCounter = 1;
 let port: SerialPort | SerialPortPolyfill | undefined;
@@ -86,6 +87,17 @@ term.onData((data) => {
 
   writer.releaseLock();
 });
+
+async function sendCalibrationCommand() {
+  if (port?.writable) {
+    const writer = port.writable.getWriter();
+    await writer.write(encoder.encode('11\r\n'));
+    writer.releaseLock();
+    term.writeln('Sent calibration command: 11');
+  } else {
+    term.writeln('Error: Port is not writable');
+  }
+}
 
 /**
  * Returns the option corresponding to the given SerialPort if one is present
@@ -228,6 +240,17 @@ function markDisconnected(): void {
   port = undefined;
 }
 
+async function sendCalibrationCommand() {
+  if (port?.writable) {
+    const writer = port.writable.getWriter();
+    await writer.write(encoder.encode('11\r\n'));
+    writer.releaseLock();
+    term.writeln('Sent calibration command: 11');
+  } else {
+    term.writeln('Error: Port is not writable');
+  }
+}
+
 /**
  * Initiates a connection to the selected port.
  */
@@ -269,7 +292,11 @@ async function connectToPort(): Promise<void> {
     term.writeln('<CONNECTED>');
     connectButton.textContent = 'Disconnect';
     connectButton.disabled = false;
-  } catch (e) {
+    // Check if we're in calibration mode and enter_flush is checked
+    if (operationModeSelector.value === 'calibration' && flushOnEnterCheckbox.checked) {
+      await sendCalibrationCommand();
+  ` } 
+    catch (e) {
     console.error(e);
     if (e instanceof Error) {
       term.writeln(`<ERROR: ${e.message}>`);
@@ -395,6 +422,8 @@ document.addEventListener('DOMContentLoaded', async () => {
       connectToPort();
     }
   });
+
+  operationModeSelector = document.getElementById('operationMode') as HTMLSelectElement;
 
   baudRateSelector = document.getElementById('baudrate') as HTMLSelectElement;
   baudRateSelector.addEventListener('input', () => {
